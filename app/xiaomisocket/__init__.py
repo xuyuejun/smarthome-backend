@@ -3,4 +3,4 @@ from flask import Blueprint
 
 xiaomisocket = Blueprint("xiaomisocket", __name__)
 
-import app.xiaomisocket.views
+import app.xiaomisocket.switch
