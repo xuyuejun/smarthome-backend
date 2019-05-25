@@ -1,5 +1,5 @@
 from flask import Blueprint
 
-servoControl = Blueprint("servoControl", __name__)
+servocontrol = Blueprint("servocontrol", __name__)
 
-import app.servoControl.servoControl
+import app.servocontrol.servo
