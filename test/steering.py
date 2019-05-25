@@ -1,9 +1,12 @@
+import sys
 from time import sleep
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
+
+# 使用14BCM
 
 def setServoAngle(servo, angle):
     pwm = GPIO.PWM(servo, 50)
@@ -15,9 +18,7 @@ def setServoAngle(servo, angle):
 
 
 if __name__ == '__main__':
-    import sys
-
-    servo = int(sys.argv[1])
-    GPIO.setup(servo, GPIO.OUT)
-    setServoAngle(servo, int(sys.argv[2]))
+    servo = 14  # 设置服务引脚
+    GPIO.setup(servo, GPIO.OUT) # 引脚为输出
+    setServoAngle(servo, int(sys.argv[1]))  # 转动角度
     GPIO.cleanup()
