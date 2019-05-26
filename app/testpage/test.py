@@ -1,12 +1,12 @@
 # coding:utf8
 from . import testpage
-from flask import request
+from flask import request, jsonify, Response
 import json
 
 
-@testpage.route("/")
-def index():
-    return "<h1 style='color:red'>测试页面<h1>"
+@testpage.route('/<name>/<words>', methods=['GET'])
+def hello(name, words):
+    return jsonify({'name': name, 'words': words})  # 也可以传入key=value形式的参数，如jsonify(name=name,words=words)
 
 
 @testpage.route("/login", methods=['GET', 'POST', 'OPTIONS'])
