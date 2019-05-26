@@ -4,9 +4,12 @@ from flask import request, jsonify, Response
 import json
 
 
-@testpage.route('/<name>/<words>', methods=['GET'])
-def hello(name, words):
-    return jsonify({'name': name, 'words': words})  # 也可以传入key=value形式的参数，如jsonify(name=name,words=words)
+@testpage.route("/", methods=['GET'])
+def hello():
+    temperature_value = 25
+    humidity_value = 60
+    return jsonify(status="success", temperature=temperature_value, humidity=humidity_value)
+    # return jsonify({'name': name, 'words': words})  # 也可以传入key=value形式的参数，如jsonify(name=name,words=words)
 
 
 @testpage.route("/login", methods=['GET', 'POST', 'OPTIONS'])
