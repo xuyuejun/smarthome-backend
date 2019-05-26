@@ -19,9 +19,12 @@ def get_task():
     if not request.args or 'angle' not in request.args:
         return "无输入数据"
     else:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
         servo = 14  # 设置服务引脚
+        GPIO.setup(servo, GPIO.OUT)     # 设置引脚为输出
         angle = request.args['angle']  # 转动角度
-        print(angle)
+        print("水平角度为" + angle)
         setServoAngle(servo, int(angle))
         GPIO.cleanup()
         return "成功控制"
