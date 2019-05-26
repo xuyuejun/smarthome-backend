@@ -61,6 +61,6 @@ def getData():
     tmp = humidity_value + humidity_point + temperature_value + temperature_point  # 十进制的数据相加
     GPIO.cleanup()
     if check == tmp:  # 数据校验，相等则输出
-        return jsonify({"status : ", "Success", "temperature : ", temperature_value, ", humidity : ", humidity_value})
-    else:  # 错误输出错误信息，和校验数据
-        return jsonify({"status : ", "failure", "temperature : ", temperature_value, ", humidity : ", humidity_value, " check : ", check, " tmp : ", tmp})
+        return jsonify(status="Success", temperature=temperature_value, humidity=humidity_value)
+    else:
+        return jsonify(status="failure", temperature=temperature_value, humidity=humidity_value, check=check, tmp=tmp)   # 错误输出错误信息，和校验数据
